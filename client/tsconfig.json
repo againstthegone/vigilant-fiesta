@@ -1,5 +1,15 @@
 {
     "compilerOptions": {
-      "jsx": "react"
-    }
-  }
+        "esModuleInterop": true,
+        "lib": ["DOM", "ES2015", "ES5"],
+        "noEmit": true,
+        "jsx": "react"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts"
+    ]
+}

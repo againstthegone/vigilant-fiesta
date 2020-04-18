@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 const App = () => {
-    return <h1>Hello!</h1>;
+
+    const [apiText, setApiText] = useState('Loading...');
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await fetch('http://localhost:8080/loadMe');
+                const text = await res.text();
+                setApiText(text);
+            }
+            catch (e) {
+                setApiText(`${e}`);
+            }
+        }
+        fetchData();
+    }, []);
+
+    return <h1>{apiText}</h1>;
 }
 
 ReactDOM.render(<App />, document.getElementById('app-root'));
