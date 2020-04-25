@@ -1,4 +1,2 @@
-client/.cache/
-client/dist/
-
-server/dist/
+.cache/
+dist/
